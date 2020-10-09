@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_app/splash.dart';
+import 'package:flutter_app/Login/Signin.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
       ),
-      home: Splash(),
+      home: Siginin(),
     );
   }
 }

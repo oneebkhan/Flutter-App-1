@@ -45,8 +45,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-  - images/Splash.png
+  # assets:
+  # - images/Splash.png
   
   
 
@@ -61,11 +61,25 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
-     - family: Pacifico
-       fonts:
-         - asset: fonts/Pacifico-Regular.ttf
-         
+  fonts:
+    - family: Mont
+      fonts:
+        - asset: assets/fonts/Montserrat-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
+
+    - family: Goth
+      fonts:
+        - asset: assets/fonts/DidactGothic-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

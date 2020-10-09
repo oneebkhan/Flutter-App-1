@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Signup/Signup.dart';
+import 'package:flutter_app/utils/colors.dart';
 
-class Login extends StatefulWidget {
+class LoginLandscape extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _LoginLandscapeState createState() => _LoginLandscapeState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginLandscapeState extends State<LoginLandscape> {
   @override
   Widget build(BuildContext context) {
+    //height of the screen
+    var height = MediaQuery.of(context).size.height;
+    //width of the screen
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -15,7 +21,6 @@ class _LoginState extends State<Login> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height * 0.5,
               child: Stack(
                 children: <Widget>[
                   Container(
@@ -23,28 +28,34 @@ class _LoginState extends State<Login> {
                     child: Text(
                       'Thiwana',
                       style: TextStyle(
-                          fontSize: 50.0,
-                          color: Colors.white,
-                          fontFamily: 'Pacifico'),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(20, 100, 0, 0),
-                    child: Text(
-                      'Game',
-                      style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 35,
+                        letterSpacing: 1,
                       ),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(70, 100, 0, 0),
-                    child: Text(
-                      'Client',
-                      style: TextStyle(
-                        fontSize: 15.0,
-                        color: Colors.white,
+                    padding: EdgeInsets.fromLTRB(20, 90, 0, 0),
+                    child: RichText(
+                      textAlign: TextAlign.start,
+                      text: TextSpan(
+                        text: ' Game ',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 17,
+                          fontFamily: 'Mont',
+                          fontWeight: FontWeight.w300,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Client',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -52,28 +63,34 @@ class _LoginState extends State<Login> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.5,
               decoration: new BoxDecoration(
-                  color: Color(0xFF16181A),
-                  borderRadius: BorderRadius.circular(20)),
-              width: MediaQuery.of(context).size.width,
+                color: containercolor,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20)),
+              ),
+              width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   SizedBox(
                     height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Text('LOGIN',
-                        style: TextStyle(color: Colors.white, fontSize: 30)),
+                    padding: const EdgeInsets.only(left: 30.0),
+                    child: Text('Login',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 50,
+                        )),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Center(
                     child: new Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: width * 0.8,
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Color(0X2eCBCBCB),
@@ -95,7 +112,7 @@ class _LoginState extends State<Login> {
                   SizedBox(height: 20),
                   Center(
                     child: new Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: width * 0.8,
                       decoration: new BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Color(0X2eCBCBCB),
@@ -126,10 +143,10 @@ class _LoginState extends State<Login> {
                         child: Text(
                           'Forgot Password',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat',
-                              decoration: TextDecoration.underline),
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat',
+                          ),
                         ),
                       ),
                     ),
@@ -142,12 +159,13 @@ class _LoginState extends State<Login> {
                       height: 40,
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: Material(
-                        color: Colors.blue,
+                        color: Colors.blue[700],
                         borderRadius: BorderRadius.circular(10),
                         child: GestureDetector(
                           onTap: () {},
                           child: Center(
-                            child: Text('LOGIN'),
+                            child: Text('LOGIN',
+                                style: TextStyle(color: Colors.white)),
                           ),
                         ),
                       ),
@@ -161,17 +179,29 @@ class _LoginState extends State<Login> {
                       children: <Widget>[
                         Text(
                           'Dont Have An Account ?',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w300),
                         ),
                         SizedBox(width: 5.0),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Signup(),
+                                ));
+                          },
                           child: Text(
                             'Register',
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: Colors.blue, fontSize: 13),
                           ),
                         ),
                       ]),
+                  SizedBox(
+                    height: 20,
+                  ),
                 ],
               ),
             ),

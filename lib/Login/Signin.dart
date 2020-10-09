@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/login_potrait.dart';
-import 'package:flutter_app/login_landscape.dart';
+import 'package:flutter_app/Login/login_landscape.dart';
+import 'package:flutter_app/Login/login_potrait.dart';
 
 class Siginin extends StatelessWidget {
   @override
