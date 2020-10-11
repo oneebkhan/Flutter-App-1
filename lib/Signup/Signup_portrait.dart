@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Login/login_potrait.dart';
+import 'package:flutter_app/profile/profile.dart';
+
+import 'package:flutter_app/utils/colors.dart';
 
 class SignPortait extends StatefulWidget {
   @override
@@ -12,7 +16,7 @@ class _SignPortaitState extends State<SignPortait> {
     //width of the screen
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: primaryColor,
         body: ScrollConfiguration(
           behavior: ScrollBehavior()
             ..buildViewportChrome(context, null, AxisDirection.down),
@@ -92,7 +96,7 @@ class _SignPortaitState extends State<SignPortait> {
                             ),
                             Center(
                               child: new Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
+                                width: width * 0.8,
                                 decoration: new BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Color(0X2eCBCBCB),
@@ -114,7 +118,7 @@ class _SignPortaitState extends State<SignPortait> {
                             SizedBox(height: 20),
                             Center(
                               child: new Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
+                                width: width * 0.8,
                                 decoration: new BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Color(0X2eCBCBCB),
@@ -138,7 +142,7 @@ class _SignPortaitState extends State<SignPortait> {
                             ),
                             Center(
                               child: new Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
+                                width: width * 0.8,
                                 decoration: new BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Color(0X2eCBCBCB),
@@ -163,7 +167,7 @@ class _SignPortaitState extends State<SignPortait> {
                             ),
                             Center(
                               child: new Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
+                                width: width * 0.8,
                                 decoration: new BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Color(0X2eCBCBCB),
@@ -191,12 +195,18 @@ class _SignPortaitState extends State<SignPortait> {
                                 height: 40,
                                 width: MediaQuery.of(context).size.width * 0.8,
                                 child: Material(
-                                  color: Colors.blue,
+                                  color: buttonColor,
                                   borderRadius: BorderRadius.circular(10),
                                   child: GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Profile(),
+                                          ));
+                                    },
                                     child: Center(
-                                      child: Text('SIGNUP'),
+                                      child: Text('Register'),
                                     ),
                                   ),
                                 ),
@@ -211,7 +221,13 @@ class _SignPortaitState extends State<SignPortait> {
                                   ),
                                   SizedBox(width: 5.0),
                                   InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Login(),
+                                          ));
+                                    },
                                     child: Text(
                                       'LOGIN',
                                       style: TextStyle(color: Colors.blue),

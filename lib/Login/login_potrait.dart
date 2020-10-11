@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Signup/Signup.dart';
+import 'package:flutter_app/Signup/Signup_portrait.dart';
+
 import 'package:flutter_app/utils/colors.dart';
 
 class Login extends StatefulWidget {
@@ -15,7 +16,7 @@ class _LoginState extends State<Login> {
     //width of the screen
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: primaryColor,
       body: ScrollConfiguration(
         behavior: ScrollBehavior()
           ..buildViewportChrome(context, null, AxisDirection.down),
@@ -170,7 +171,7 @@ class _LoginState extends State<Login> {
                           height: 40,
                           width: MediaQuery.of(context).size.width * 0.8,
                           child: Material(
-                            color: Colors.blue[700],
+                            color: buttonColor,
                             borderRadius: BorderRadius.circular(10),
                             child: GestureDetector(
                               onTap: () {},
@@ -201,7 +202,7 @@ class _LoginState extends State<Login> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Signup(),
+                                      builder: (context) => SignPortait(),
                                     ));
                               },
                               child: Text(
