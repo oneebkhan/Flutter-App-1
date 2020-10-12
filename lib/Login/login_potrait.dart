@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Game%20selected/Game.dart';
 import 'package:flutter_app/Signup/Signup_portrait.dart';
 
 import 'package:flutter_app/utils/colors.dart';
@@ -174,7 +175,13 @@ class _LoginState extends State<Login> {
                             color: buttonColor,
                             borderRadius: BorderRadius.circular(10),
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Game(),
+                                    ));
+                              },
                               child: Center(
                                 child: Text('LOGIN',
                                     style: TextStyle(color: Colors.white)),
