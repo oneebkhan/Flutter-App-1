@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Dashboard/Dashboard.dart';
 import 'package:flutter_app/Game%20selected/Game.dart';
 import 'package:flutter_app/Signup/Signup_portrait.dart';
 
@@ -179,7 +180,7 @@ class _LoginState extends State<Login> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Game(),
+                                      builder: (context) => Dashboard(),
                                     ));
                               },
                               child: Center(
