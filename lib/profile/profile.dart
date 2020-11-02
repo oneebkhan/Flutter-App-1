@@ -9,6 +9,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    int _currentIndex = 1;
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
@@ -49,40 +50,28 @@ class _ProfileState extends State<Profile> {
               ),
               alignment: FractionalOffset(0.5, 0.0),
             ),
-            Align(
-              alignment: FractionalOffset(0.5, 0.9),
-              child: Container(
-                  decoration: new BoxDecoration(
-                    color: buttonColor,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  height: 40,
-                  width: MediaQuery.of(context).size.width * 0.4,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.people,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.qr_code,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  )),
-            ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        iconSize: 30,
+        type: BottomNavigationBarType.fixed,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }

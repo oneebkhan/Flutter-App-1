@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Game%20selected/Game.dart';
+import 'package:flutter_app/profile/profile.dart';
 import 'package:flutter_app/utils/colors.dart';
+import 'package:flutter_app/utils/search.dart';
 import 'package:flutter_app/widgets/gamestitle.dart';
 import 'package:flutter_app/widgets/gamestitle2.dart';
 import 'package:flutter_app/widgets/horizantal.dart';
@@ -15,6 +18,7 @@ class _DashboardState extends State<Dashboard> {
     var height = MediaQuery.of(context).size.height;
     //width of the screen
     var width = MediaQuery.of(context).size.width;
+    int _currentIndex = 0;
     return Scaffold(
       body: Container(
         color: primaryColor,
@@ -64,11 +68,14 @@ class _DashboardState extends State<Dashboard> {
                     alignment: FractionalOffset(1.0, 0),
                     child: Container(
                       padding: EdgeInsets.only(top: 40, right: 20),
-                      child: Icon(
-                        Icons.search,
-                        size: 20,
-                        color: Colors.white,
-                      ),
+                      child: IconButton(
+                          color: Colors.white,
+                          icon: Icon(Icons.search),
+                          onPressed: () {
+                            TextField(
+                              decoration: InputDecoration(labelText: 'HI'),
+                            );
+                          }),
                     ),
                   ),
                 ],
@@ -112,14 +119,17 @@ class _DashboardState extends State<Dashboard> {
                               ),
                               Container(
                                 child: Center(
-                                  child: Text(
-                                    'All Games',
-                                    style: TextStyle(fontSize: 15),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 20.0),
+                                    child: Text(
+                                      'All Games',
+                                      style: TextStyle(fontSize: 15),
+                                    ),
                                   ),
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(top: 20),
+                                padding: EdgeInsets.only(top: 35),
                                 child: Center(
                                   child: Text(
                                     '2',
@@ -143,14 +153,17 @@ class _DashboardState extends State<Dashboard> {
                             ),
                             Container(
                               child: Center(
-                                child: Text(
-                                  'Your Favourite Console',
-                                  style: TextStyle(fontSize: 15),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 20.0),
+                                  child: Text(
+                                    'Your Favourite Console',
+                                    style: TextStyle(fontSize: 15),
+                                  ),
                                 ),
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(top: 20),
+                              padding: EdgeInsets.only(top: 35),
                               child: Center(
                                 child: Text(
                                   'PS4',
@@ -183,50 +196,46 @@ class _DashboardState extends State<Dashboard> {
                     height: 15,
                   ),
                   Gamestitle(),
-                  Horizantallayout(),
-                  Upcoming(),
-                  Horizantallayout(),
-                  Upcoming(),
-                  Horizantallayout(),
-                  Upcoming(),
-                  Horizantallayout(),
-                  Align(
-                    alignment: FractionalOffset(0.5, 0.9),
-                    child: Container(
-                        decoration: new BoxDecoration(
-                          color: buttonColor,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        height: 40,
-                        width: MediaQuery.of(context).size.width * 0.4,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            GestureDetector(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.people,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Icon(
-                                Icons.qr_code,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        )),
+                  GestureDetector(
+                    child: Horizantallayout(),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Game(),
+                          ));
+                    },
                   ),
+                  Upcoming(),
+                  Horizantallayout(),
+                  Upcoming(),
+                  Horizantallayout(),
+                  Upcoming(),
+                  Horizantallayout(),
                 ],
               ),
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        iconSize: 30,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
